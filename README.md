@@ -22,9 +22,9 @@ easy_install twitter
 
 # setup an app in twitter
 
-https://apps.twitter.com/
-Name, desc and URL are random but name must be unique
-Set access rights to read/write
+https://apps.twitter.com/  
+Name, desc and URL are random but name must be unique  
+Set access rights to read/write  
 
 # Carefully note your keys and secrets and put them in a text file keys.py
 
