@@ -28,10 +28,10 @@ Set access rights to read/write
 
 # Carefully note your keys and secrets and put them in a text file keys.py
 
-CONSUMER_KEY = 'blah'
-CONSUMER_SECRET = 'blah'
-ACCESS_TOKEN_KEY = 'blah'
-ACCESS_TOKEN_SECRET = 'blah'
+    CONSUMER_KEY = 'blah'  
+    CONSUMER_SECRET = 'blah'  
+    ACCESS_TOKEN_KEY = 'blah'  
+    ACCESS_TOKEN_SECRET = 'blah'  
 
 # dump all the twitter accounts you want to report in a text file called targets.txt
 
