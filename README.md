@@ -38,3 +38,38 @@ ACCESS_TOKEN_SECRET = 'blah'
 There may be several lines in the targets.txt, but only those with user_id=12345 or whatever will be matched.
 
 # Run report.py with keys.py and targets.txt in the same directory
+
+    #!/usr/bin/python  
+      
+    # Report.py  
+    # Batch report twitter accounts based on a textfile  
+      
+    import keys  
+    import twitter  
+    import re  
+      
+    targets_file = open('targets.txt', 'r')  
+      
+    raw_array = targets_file.readlines()  
+      
+    pattern = re.compile('user_id=(\d+)\s+')  
+      
+    t = twitter.Twitter(  
+        auth = twitter.OAuth(  
+            keys.ACCESS_TOKEN_KEY,  
+            keys.ACCESS_TOKEN_SECRET,  
+            keys.CONSUMER_KEY,  
+            keys.CONSUMER_SECRET  
+        )  
+    )  
+      
+    for line in raw_array:  
+        match = re.search('user_id=(\d+)\s', line)  
+        if match:  
+            id = match.groups()[0]  
+            try:  
+                result = t.users.report_spam(user_id = id)  
+                print('reported ' + id)  
+            except twitter.api.TwitterHTTPError as err:  
+                print('skipped ')  
+              
